@@ -16,12 +16,10 @@ class App extends Component {
     number: "",
   };
 
-  short = require("short-uuid");
-
   addContact = ({ name, number }) => {
+    const short = require("short-uuid");
     const contact = this.state.contacts;
-    const id = this.short.generate;
-    console.log(contact.find((contact) => contact.name === name));
+    const id = short.generate();
     if (!contact.find((contacts) => contacts.name === name)) {
       this.setState(({ contacts }) => ({
         contacts: [{ id: id, name: name, number: number }, ...contacts],
